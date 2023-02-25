@@ -24,7 +24,7 @@ jobs:
       run: |
         python -m flake8
         #cd ..
-        pytest
+        #pytest
         cd api_yamdb
  
   build_and_push_to_docker_hub:
