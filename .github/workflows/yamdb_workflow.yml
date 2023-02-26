@@ -24,7 +24,7 @@ jobs:
     - name: Test with flake8 and django tests
       run: |
         python -m flake8
-        #python -m pytest
+        #python -m pytest вернуть перед отправкой на проверку!
 
   
   build_and_push_to_docker_hub:
