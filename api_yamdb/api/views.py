@@ -1,35 +1,24 @@
-from rest_framework import viewsets
-from rest_framework import mixins
-from rest_framework import filters
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-from rest_framework_simplejwt.views import TokenObtainPairView
-from django_filters.rest_framework import DjangoFilterBackend
+from django.conf import settings
+from django.core.mail import send_mail
+from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from django.utils.crypto import get_random_string
-from django.core.mail import send_mail
-from django.conf import settings
-from django.db.models import Avg
-
-from reviews.models import Title, Genre, Categorie, Review
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, mixins, status, viewsets
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework_simplejwt.views import TokenObtainPairView
+from reviews.models import Categorie, Genre, Review, Title
 from users.models import User
-from .serializers import GenreSerializer, CategorieSerializer
-from .serializers import TitleGetSerializer, TitlePostSerializer
-from .serializers import (
-    CommentSerializer,
-    ReviewSerializer,
-    UserSerializer,
-    UserMeSerializer,
-    CustomTokenObtainPairSerializer,
-    SignupSerializer
-)
+
 from .filters import TitleFilter
-from .permissions import (
-    IsAdmimOrReadOnly,
-    IsAdmimOrModeratorOrReadOnly,
-    IsAdminOrSuperUser
-)
+from .permissions import (IsAdmimOrModeratorOrReadOnly, IsAdmimOrReadOnly,
+                          IsAdminOrSuperUser)
+from .serializers import (CategorieSerializer, CommentSerializer,
+                          CustomTokenObtainPairSerializer, GenreSerializer,
+                          ReviewSerializer, SignupSerializer,
+                          TitleGetSerializer, TitlePostSerializer,
+                          UserMeSerializer, UserSerializer)
 
 
 class CategorieViewSet(

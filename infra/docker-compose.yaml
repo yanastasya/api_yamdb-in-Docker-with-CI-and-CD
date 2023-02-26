@@ -11,7 +11,7 @@ services:
       - ./.env
   
   web:
-    image: yanastasya/api_yamdb-web
+    image: yanastasya/api_yamdb-web:latest
     restart: always
     volumes: 
     
@@ -24,8 +24,7 @@ services:
       - ./.env
 
   
-  nginx:
-    
+  nginx:    
     image: nginx:1.21.3-alpine    
     ports:
       - "80:80"

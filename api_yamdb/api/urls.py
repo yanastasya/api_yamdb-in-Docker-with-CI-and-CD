@@ -1,10 +1,10 @@
+from api.views import (CustomTokenObtainPairView, SignupViewSet, UserMeViewSet,
+                       UserViewSet)
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from .views import GenreViewSet, CategorieViewSet
-from .views import TitleViewSet, ReviewViewSet, CommentViewSet
-from api.views import UserViewSet, UserMeViewSet
-from api.views import CustomTokenObtainPairView, SignupViewSet
+from .views import (CategorieViewSet, CommentViewSet, GenreViewSet,
+                    ReviewViewSet, TitleViewSet)
 
 app_name = 'api'
 

@@ -1,10 +1,9 @@
 import datetime as dt
 
+from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from django.shortcuts import get_object_or_404
-
-from reviews.models import Title, Genre, Categorie, Review, Comment
+from reviews.models import Categorie, Comment, Genre, Review, Title
 from users.models import User
 
 
