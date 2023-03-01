@@ -73,7 +73,7 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', default='5432')
     }
 }
-# Password validation
+# Password validationddffdf
 
 AUTH_PASSWORD_VALIDATORS = [
     {
