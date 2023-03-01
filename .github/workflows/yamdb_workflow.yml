@@ -23,7 +23,7 @@ jobs:
     - name: Test with flake8 and django tests
       run: |
         python -m flake8
-        #python -m pytestdsdds
+        #python -m pytest
         
  
   build_and_push_to_docker_hub:
@@ -76,17 +76,9 @@ jobs:
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-            echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             sudo docker-compose up -d
+            sudo docker-compose exec web
+            python manage.py makemigrations
+            python manage.py migrate
+            manage.py collectstatic --no-input 
             sudo docker cp ./redoc.yaml web:/app/static
-              
-  send_message:
-    runs-on: ubuntu-latest
-    needs: deploy
-    steps:
-      - name: send message
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен! 
