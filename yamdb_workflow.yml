@@ -76,8 +76,11 @@ jobs:
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-            echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             sudo docker-compose up -d
+            sudo docker-compose exec web
+            python manage.py makemigrations
+            python manage.py migrate
+            manage.py collectstatic --no-input 
             sudo docker cp ./redoc.yaml web:/app/static
               
   send_message:
