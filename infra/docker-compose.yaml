@@ -11,7 +11,7 @@ services:
       - ./.env
   
   web:
-    image: yanastasya/api_yamdb-web:latest
+    image: yanastasya/api_yamdb-web
     restart: always
     volumes: 
     
