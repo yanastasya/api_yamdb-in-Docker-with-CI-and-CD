@@ -9,7 +9,7 @@
 
 # Для разворота проекта на вашем сервере:
 1) форкните данный репозитарий
-2) на сервере должны быть уустановлены nginx, docker, docker-compose
+2) на сервере должны быть установлены nginx, docker, docker-compose
 3) в файлах docker-compose.yaml (строка 14) и yamdb_workflow.yml (строки 55 и 72) изменить "yanastasya" на ваш username на DockerHub.
 4) скопировать файлы docker-compose.yaml и nginx/default.conf из проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно.
 5) Добавьте в Secrets GitHub Actions переменные окружения для работы базы данных:
