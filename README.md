@@ -3,7 +3,7 @@
 
 Проект упакован в контейнеры и настроены следующие процессы: запуск тестов, обнавление образа проекта на DockerHub, автоматический деплой на боевой сервер при пуше в главную ветку main и отправка сообщения об успешном деплое в Telegram. 
 
-![Здесь видно, что workflow прошел успешно](https://github.com/yanastasya/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+![Здесь видно, что workflo w ппрошел успешно](https://github.com/yanastasya/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ## В данный момент документацию к API можно увидеть по [ссылке](http://84.201.158.7/redoc), взглянуть на админку [здесь](http://84.201.158.7/admin).
 
