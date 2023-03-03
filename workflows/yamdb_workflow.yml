@@ -23,7 +23,7 @@ jobs:
     - name: Test with flake8 and django tests
       run: |
         python -m flake8
-        #python -m pytest
+        python -m pytest
         
  
   build_and_push_to_docker_hub:
@@ -67,9 +67,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker-compose stop
-            sudo docker-compose rm web
             sudo docker pull yanastasya/api_yamdb-web
+            sudo docker-compose stop
+            sudo docker-compose rm web            
             rm .env
             sudo fuser -k 80/tcp
             touch .env
